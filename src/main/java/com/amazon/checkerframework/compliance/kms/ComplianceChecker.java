@@ -18,7 +18,7 @@ import org.checkerframework.framework.source.SuppressWarningsKeys;
  * DataKeySpec.AES_128, which would otherwise appear
  * in stub files.
  */
-@StubFiles("GenerateDataKeyRequest.astub")
+@StubFiles({"GenerateDataKeyRequest.astub", "OtherJavaCrypto.astub"})
 @SuppressWarningsKeys({"compliance", "kms", "kms-compliance"})
 public class ComplianceChecker extends ValueChecker {
     @Override

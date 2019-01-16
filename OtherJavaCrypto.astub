@@ -1,0 +1,28 @@
+// Stub file for key length compliance checks that aren’t KMS-related - that is, general Java crypto libraries.
+
+package java.security;
+
+class SecureRandom {
+
+void nextBytes(byte @ArrayLenRange(from=32) [] a);
+int next(@IntRange(from=256) int x);
+
+}
+
+package org.bouncycastle.crypto;
+
+public class KeyGenerationParameters
+{
+    public KeyGenerationParameters(
+	        SecureRandom    random,
+	        @IntRange(from=256) int strength);
+
+     public @IntRange(from=256) int getStrength();
+}
+
+package javax.crypto.spec;
+
+class SecretKeySpec {
+ SecretKeySpec(byte[] key, int offset, @IntRange(from=32) int len, String algorithm);
+ SecretKeySpec(byte @ArrayLenRange(from=32) [] key, String algorithm);
+}
