@@ -1,5 +1,7 @@
 // Stub file for key length compliance checks that aren’t KMS-related - that is, general Java crypto libraries.
 
+import org.checkerframework.common.value.qual.*;
+
 package java.security;
 
 class SecureRandom {
@@ -24,5 +26,5 @@ package javax.crypto.spec;
 
 class SecretKeySpec {
  SecretKeySpec(byte[] key, int offset, @IntRange(from=32) int len, String algorithm);
- SecretKeySpec(byte @ArrayLenRange(from=32) [] key, String algorithm);
+ SecretKeySpec(byte @MinLen(32) [] key, String algorithm);
 }
